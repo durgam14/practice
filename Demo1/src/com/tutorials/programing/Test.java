@@ -13,7 +13,7 @@ public class Test {
 		for(int i=ch.length-1;i>=0;i--) {
 			rev += ch[i];
 		}
-		System.out.println(rev);
+		System.out.println(rev);;
 		
 	}
 
