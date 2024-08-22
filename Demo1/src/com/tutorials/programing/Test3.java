@@ -1,6 +1,7 @@
 package com.tutorials.programing;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -13,8 +14,15 @@ public class Test3 {
 		
 		char a[] = name.toCharArray();
 		
-		Map<String, Long> count = Arrays.stream(name.split("")).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
-		System.out.println(count);
+		List<String> duplicates = Arrays.stream(name.split("")).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+				.entrySet().stream()
+				.filter(s->s.getValue()>1)
+				.map(Map.Entry::getKey)
+				.collect(Collectors.toList());
+		
+		
+		
+		System.out.println(duplicates);
  
 	}
 
